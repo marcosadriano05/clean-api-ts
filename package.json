@@ -1,8 +1,7 @@
 {
   "name": "clean-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "NodeJs Rest API using TDD, SOLID, Design Patterns and Clean Archtecture",
   "scripts": {
     "start": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
@@ -14,7 +13,7 @@
     "prepare": "husky install"
   },
   "keywords": [],
-  "author": "",
+  "author": "Marcos Adriano",
   "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.0.3",
