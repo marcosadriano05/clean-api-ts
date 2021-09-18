@@ -1,13 +1,17 @@
+import { Collection } from 'mongodb'
 import { MongoHelper } from '../helpers/mongo-helper'
-import { LogErrorMongoRepository } from './log-error'
+import { LogMongoRepository } from './log-error'
 
-const makeSut = (): LogErrorMongoRepository => {
-  return new LogErrorMongoRepository()
+const makeSut = (): LogMongoRepository => {
+  return new LogMongoRepository()
 }
 
 describe('Log Error Mongo Repository', () => {
+  let logErrorsCollection: Collection
+
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
+    logErrorsCollection = await MongoHelper.getCollection('errors')
   })
 
   afterAll(async () => {
@@ -15,14 +19,12 @@ describe('Log Error Mongo Repository', () => {
   })
 
   beforeEach(async () => {
-    const logErrorsCollection = await MongoHelper.getCollection('errors')
     await logErrorsCollection.deleteMany({})
   })
 
   test('Should insert an error stack with success', async () => {
     const sut = makeSut()
-    await sut.log('any_stack')
-    const logErrorsCollection = await MongoHelper.getCollection('errors')
+    await sut.logError('any_stack')
     const log = await logErrorsCollection.findOne()
     expect(log).toHaveProperty('stack')
     expect(log).toHaveProperty('date')
