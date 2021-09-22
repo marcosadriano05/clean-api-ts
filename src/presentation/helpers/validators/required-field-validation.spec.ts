@@ -14,7 +14,7 @@ describe('Required Fild Validation', () => {
 
   test('Should not return if validation succeeds', () => {
     const sut = makeSut()
-    const error = sut.validate({ field: 'any_param' })
+    const error = sut.validate({ field: 'any_value' })
     expect(error).toBeFalsy()
   })
 })
