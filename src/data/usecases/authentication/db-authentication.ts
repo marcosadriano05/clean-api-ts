@@ -27,6 +27,7 @@ export class DbAuthentication implements Authentication {
     if (!passwordMatches) {
       return null
     }
-    await this.tokenGenerator.generate(account.id)
+    const accessToken = await this.tokenGenerator.generate(account.id)
+    return accessToken
   }
 }
