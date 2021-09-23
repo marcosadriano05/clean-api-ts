@@ -1,6 +1,6 @@
 import { Authentication, AuthenticationModel } from '../../../domain/usecases/authentication'
 import { AccountModel } from '../add-account/db-add-account-protocols'
-import { LoadUserByEmailRepository } from '../protocols'
+import { LoadUserByEmailRepository } from '../protocols/db/load-user-by-email-repository'
 import { DbAuthentication } from './db-authentication'
 
 const makeLoadUserByEmailRepository = (): LoadUserByEmailRepository => {
