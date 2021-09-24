@@ -6,6 +6,6 @@ describe('Jwt Adapter', () => {
     const sut = new JwtAdapter('secret')
     const sighSpy = jest.spyOn(jwt, 'sign')
     await sut.encrypt('any_id')
-    expect(sighSpy).toHaveBeenCalledWith('any_id', 'secret')
+    expect(sighSpy).toHaveBeenCalledWith({ id: 'any_id' }, 'secret')
   })
 })
