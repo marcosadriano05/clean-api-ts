@@ -1,5 +1,5 @@
-import { Hasher } from '../../data/usecases/protocols/criptography/hasher'
-import { HashComparer } from '../../data/usecases/authentication/db-authentication-protocols'
+import { Hasher } from '../../../data/usecases/protocols/criptography/hasher'
+import { HashComparer } from '../../../data/usecases/authentication/db-authentication-protocols'
 import bcrypt from 'bcrypt'
 
 export class BcryptAdapter implements Hasher, HashComparer {
